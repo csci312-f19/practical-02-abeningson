@@ -6,11 +6,16 @@ The end result should be a labeled slider that reports its current value and
 returns all changes via a callback. The callback is passed an object of the form
 {color-name: value}, where color-name is the string passed in as the color parameter.
 
+
 @param {string} color - name to use a label and the key for the callback's argument
 @param {int} initialValue - the initial value of the slider
 @param {Object~} callback - passed the new value object on changes to the slider
 
 */
+
+
+
+
 const createSlider = function createSlider(color, initialValue, callback) {
   // create a div to hold all of the slider elements
   const slider = document.createElement('div');
@@ -44,6 +49,8 @@ const createSlider = function createSlider(color, initialValue, callback) {
   // return the slider
   return slider;
 };
+
+
 
 
 /**
