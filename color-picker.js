@@ -13,9 +13,6 @@ returns all changes via a callback. The callback is passed an object of the form
 
 */
 
-
-
-
 const createSlider = function createSlider(color, initialValue, callback) {
   // create a div to hold all of the slider elements
   const slider = document.createElement('div');
@@ -24,7 +21,7 @@ const createSlider = function createSlider(color, initialValue, callback) {
   // create a div to hold the color name and add it to the slider
   const label = document.createElement('div');
   label.className = 'color-label';
-  label.innerHTML = `${color}:`
+  label.innerHTML = `${color}:`;
   slider.appendChild(label);
 
   // create the range input and add it to the slider
@@ -42,16 +39,13 @@ const createSlider = function createSlider(color, initialValue, callback) {
 
   // set the range input's oninput function to update the readout and call the callback
   range.oninput = () => {
-     readout.innerHTML = range.value;
-     callback({ [color]: parseInt(range.value, 10) });
-   };
+    readout.innerHTML = range.value;
+    callback({ [color]: parseInt(range.value, 10) });
+  };
 
   // return the slider
   return slider;
 };
-
-
-
 
 /**
 This function creates a color picker component.
@@ -84,8 +78,8 @@ const createColorPicker = function createColorPicker(initialValue, callback) { /
   // - merge the change into the the current color
   // - set the background color of the swatch
   // - call the callback with the current color
-  const update = function(newColor) {
-    currentColor = { ...currentColor, ...newColor }
+  const update = function doUpdate(newColor) {
+    currentColor = { ...currentColor, ...newColor };
     const { red, green, blue } = currentColor;
 
     colorBox.style.background = `rgb(${red}, ${green}, ${blue})`;
@@ -94,11 +88,10 @@ const createColorPicker = function createColorPicker(initialValue, callback) { /
   };
 
   // add sliders for each color channel
-  Object.keys(currentColor).forEach((color) =>{
-      // initialize slider in here
-      const slider = createSlider(color, currentColor[color], update);
-      picker.appendChild(slider);
-
+  Object.keys(currentColor).forEach((color) => {
+    // initialize slider in here
+    const slider = createSlider(color, currentColor[color], update);
+    picker.appendChild(slider);
   });
 
   // call update() to initialize to the correct value
