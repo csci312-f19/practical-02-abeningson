@@ -27,7 +27,7 @@ const createSlider = function createSlider(color, initialValue, callback) {
   range.type = 'range';
   range.min = 0;
   range.max = 255;
-  range.value = 0;
+  range.value = initialValue;
   slider.appendChild(range);
 
   // create the readout to display the current value and add it to the slider
